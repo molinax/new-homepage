@@ -30,13 +30,13 @@ const HeaderMenu = styled.nav`
 
 const HeaderMenuMobile = styled(HeaderMenu)`
   flex-direction: column;
-  gap: 10rem;
+  gap: 13rem;
 
   position: absolute;
   top: 0;
   right: 0;
   
-  padding: 1.5rem 1.8rem 1.5rem 1.5rem;
+  padding: 1.5rem 1.49rem 1.5rem 2rem;
   background-color: white;
   width: 65vw;
   height: 100%;
@@ -49,7 +49,7 @@ const IconMenuClose = styled(IconMenuHeader)`
 const HeaderMenuList = styled.ul`
   display: flex;
   flex-direction: ${(props) => props.$desktopList === "desktop" ? "row" : "column"};
-  gap: 2.5rem;
+  gap: 3rem;
 `
 
 const HeaderMenuItem = styled.a`
@@ -104,10 +104,10 @@ export const Header = () => {
     <HeaderContainer>
       <HeaderLogo src={headerImagesCollection[0]} alt="Logo" />
 
-      { viewportWidth < 860 && <IconMenuHeader src={headerImagesCollection[1]} alt="Icon menu open" onClick={() => handleMenu()} /> }
+      { viewportWidth < 750 && <IconMenuHeader src={headerImagesCollection[1]} alt="Icon menu open" onClick={() => handleMenu()} /> }
 
       {
-        viewportWidth < 860 ?
+        viewportWidth < 750 ?
           <MainShadow $menuSwitch={menuSwitch}>
             <HeaderMenuMobile>
               <IconMenuClose $closeMenu={true} src={headerImagesCollection[2]} alt="Icon menu close" onClick={() => handleMenu()} />

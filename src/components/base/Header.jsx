@@ -21,7 +21,7 @@ const HeaderLogo = styled.img`
 
 const IconMenuHeader = styled.img`
   cursor: pointer;
-  width: ${(props) => props.$closeMenu ? "1.5rem" : "1.8rem"};
+  width: ${(props) => props.$closeMenu ? "1.6rem" : "1.8rem"};
   height: ${(props) => props.$closeMenu ? "1.5rem" : "1.4rem"};
 `
 const HeaderMenu = styled.nav`
@@ -29,13 +29,13 @@ const HeaderMenu = styled.nav`
 `
 
 const HeaderMenuMobile = styled(HeaderMenu)`
+  flex-direction: column;
+  gap: 10rem;
+
   position: absolute;
   top: 0;
   right: 0;
   
-  flex-direction: column;
-  gap: 10rem;
-
   padding: 1.5rem 1.8rem 1.5rem 1.5rem;
   background-color: white;
   width: 65vw;
@@ -65,22 +65,20 @@ const HeaderMenuItem = styled.a`
 
 export const Header = () => {
   const [menuSwitch, setIsMenuSwitch] = useState(false)
-  const [viewportWidth, setIsViewportWidth] = useState()
+  const [viewportWidth, setIsViewportWidth] = useState(window.innerWidth)
 
   useEffect(() => {
-    window.addEventListener('resize', () => {
-      const handleResize = () => {
-        const viewport = window.innerWidth
-        setIsViewportWidth(viewport)
-      }
+    const handleResize = () => {
+      const viewport = window.innerWidth
+      setIsViewportWidth(viewport)
+    }
 
-      window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize)
 
-      return () => {
-        window.removeEventListener('resize', handleResize);
-      }
-    })
-  }, [viewportWidth])
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   const handleMenu = () => setIsMenuSwitch(!menuSwitch)
 
@@ -92,7 +90,7 @@ export const Header = () => {
             linksCollection.map(linkItem => {
               return (
                 <li key={linkItem}>
-                  <HeaderMenuItem>{linkItem}</HeaderMenuItem>
+                  <HeaderMenuItem href="#">{linkItem}</HeaderMenuItem>
                 </li>
               )
             })

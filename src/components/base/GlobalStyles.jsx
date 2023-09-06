@@ -14,6 +14,10 @@ export const GlobalStyles = createGlobalStyle`
     color: ${darkGrayishBlue};
   }
 
+  body, #root {
+    min-height: 100vh;
+  }
+
   a {
     text-decoration: none;
   }

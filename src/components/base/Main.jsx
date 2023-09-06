@@ -10,6 +10,8 @@ const MainWrapper = styled.main`
   align-items: center;
   gap: 8rem;
 
+  height: 100%;
+  
   @media screen and (min-width: 860px) {
     display: grid;
     grid-template-columns: repeat(6, 1fr);

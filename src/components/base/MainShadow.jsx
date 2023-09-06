@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const MainShadow = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   right: ${(props) => props.$menuSwitch ? "0" : "-100%"};
   z-index: 99;
